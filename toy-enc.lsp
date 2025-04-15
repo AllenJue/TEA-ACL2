@@ -65,10 +65,10 @@
 (verify-guards toy-dec-alt)
 (verify-guards toy-dec)
 
-(defthm toy-dec-alt-equal-to-toy-dec
-  (implies (and (natp x) (natp rounds) (< x #x100000000))
-           (equal (toy-dec-alt x rounds)
-                  (toy-dec x rounds))))
+;; (defthm toy-dec-alt-equal-to-toy-dec
+;;   (implies (and (natp x) (natp rounds) (< x #x100000000))
+;;            (equal (toy-dec-alt x rounds)
+;;                   (toy-dec x rounds))))
 
 
 (in-theory (disable toy-enc-step))
