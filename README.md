@@ -10,7 +10,9 @@ The TEA cipher algorithm is a block cipher that encrypts 2 32 bit integers with 
 The TEA cipher algorithm is based on 'cycles' of the encryption and decryption algorithm. It has a Feistel structure, which is a symmetric structure typically used to implement block ciphers. Notably, the encryption and decryption methods are very similar to each other. The variables in encryption and decryption are v0, v1, k0, k1, k2, k3, k4, and sum, and they can be used to invert each other. In particular:
 
 v0-1 -- 2 32 bit integers that are the "plaintext" to be encrypted
+
 k0-3 -- 4 32 bit integers that are the secret keys
+
 sum  -- Multiple of a magic constant (*delta*) that helps encrypt v0 and v1
 
 The algorithm begins by incrementing sum with *delta*. The the new sumis used in conjunction with k0-3, bit shifts, and v1 to update v0. Finally, the updated sum is used with k0-3, and the updated v0 to encrypt v1. This process is repeated 'n' cycles of times. The decryption algorithm is the same process but in reverse. This project faithfully implements the TEA cipher algorithm in ACL2. The TEA encryption and decryption methods return a list of elements '(encrypted-v0 encrypted-v1 encrypted-sum) and '(decrypted-v0 decrypted-v1 decrypted-sum), respectively. 
